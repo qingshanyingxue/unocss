@@ -10,6 +10,8 @@ import TypographyDemo from './components/TypographyDemo.vue'
 import ResponsiveDemo from './components/ResponsiveDemo.vue'
 import AnimationDemo from './components/AnimationDemo.vue'
 import CustomRulesDemo from './components/CustomRulesDemo.vue'
+import CheatSheet from './components/CheatSheet.vue'
+import FlexDemo from './components/FlexDemo.vue'
 
 const tabs = [
   { name: '基础入门', component: BasicDemo },
@@ -22,6 +24,8 @@ const tabs = [
   { name: '响应式', component: ResponsiveDemo },
   { name: '动画', component: AnimationDemo },
   { name: '自定义规则', component: CustomRulesDemo },
+  { name: 'Flex 布局', component: FlexDemo },
+  { name: '常用速查', component: CheatSheet },
 ]
 
 const activeTab = ref(0)
