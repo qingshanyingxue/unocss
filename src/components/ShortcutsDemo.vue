@@ -55,9 +55,31 @@
     <!-- 代码块快捷方式 -->
     <div class="card">
       <h3 class="text-lg font-semibold text-gray-700 mb-4">💻 代码块快捷方式</h3>
+      <p class="text-sm text-gray-500 mb-4">本页所有深色代码展示区域都用了 <code class="bg-gray-100 px-1 rounded">code-block</code>，它把 7 个类打包成了一个名字：</p>
+
+      <div class="grid md:grid-cols-2 gap-3 mb-4">
+        <div class="code-block text-xs">
+          <div class="text-gray-500 mb-1">❌ 不用 shortcut，每次都要写 7 个类</div>
+          <div>&lt;div class="<span class="text-yellow-400">bg-gray-900 text-green-400 p-4 rounded-lg text-sm font-mono overflow-x-auto</span>"&gt;</div>
+          <div class="pl-4">const x = 42</div>
+          <div>&lt;/div&gt;</div>
+        </div>
+        <div class="code-block text-xs">
+          <div class="text-gray-500 mb-1">✅ 用 shortcut，只写 1 个类名</div>
+          <div>&lt;div class="<span class="text-cyan-400">code-block</span>"&gt;</div>
+          <div class="pl-4">const x = 42</div>
+          <div>&lt;/div&gt;</div>
+        </div>
+      </div>
+
+      <p class="text-sm text-gray-500 mb-2">👇 下方就是 <code class="bg-gray-100 px-1 rounded">code-block</code> 渲染出来的效果：</p>
       <div class="code-block">
-        <div class="text-gray-500">// 使用 code-block shortcut</div>
+        <div class="text-gray-500">// 这就是 code-block shortcut 展开后的样式</div>
         <div>const greet = (name: string) =&gt; `Hello, ${name}!`</div>
+      </div>
+
+      <div class="mt-3 p-3 bg-blue-50 rounded-lg text-sm text-blue-700">
+        <strong>好处：</strong>当你项目中有 50 个代码块时，改一处 shortcut 定义，50 个地方同时生效，不用逐个修改。
       </div>
     </div>
 
