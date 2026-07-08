@@ -111,7 +111,11 @@ const categories = [
       { cls: 'bg-blue-500', desc: '蓝色背景', css: 'background: #3b82f6' },
       { cls: 'bg-red-500', desc: '红色背景', css: 'background: #ef4444' },
       { cls: 'bg-green-500', desc: '绿色背景', css: 'background: #22c55e' },
-      { cls: 'bg-gradient-to-r', desc: '右向渐变', css: 'background: linear-gradient(to right, ...)' },
+      {
+        cls: 'bg-gradient-to-r',
+        desc: '右向渐变',
+        css: 'background: linear-gradient(to right, ...)',
+      },
       { cls: 'opacity-50', desc: '半透明', css: 'opacity: 0.5' },
     ],
   },
@@ -205,19 +209,84 @@ const categories = [
 const activeCategory = ref<number | null>(null)
 
 const colorMap: Record<string, { bg: string; text: string; badge: string; border: string }> = {
-  blue: { bg: 'bg-blue-50', text: 'text-blue-700', badge: 'bg-blue-100 text-blue-700', border: 'border-blue-200' },
-  indigo: { bg: 'bg-indigo-50', text: 'text-indigo-700', badge: 'bg-indigo-100 text-indigo-700', border: 'border-indigo-200' },
-  violet: { bg: 'bg-violet-50', text: 'text-violet-700', badge: 'bg-violet-100 text-violet-700', border: 'border-violet-200' },
-  green: { bg: 'bg-green-50', text: 'text-green-700', badge: 'bg-green-100 text-green-700', border: 'border-green-200' },
-  teal: { bg: 'bg-teal-50', text: 'text-teal-700', badge: 'bg-teal-100 text-teal-700', border: 'border-teal-200' },
-  orange: { bg: 'bg-orange-50', text: 'text-orange-700', badge: 'bg-orange-100 text-orange-700', border: 'border-orange-200' },
-  pink: { bg: 'bg-pink-50', text: 'text-pink-700', badge: 'bg-pink-100 text-pink-700', border: 'border-pink-200' },
-  cyan: { bg: 'bg-cyan-50', text: 'text-cyan-700', badge: 'bg-cyan-100 text-cyan-700', border: 'border-cyan-200' },
-  amber: { bg: 'bg-amber-50', text: 'text-amber-700', badge: 'bg-amber-100 text-amber-700', border: 'border-amber-200' },
-  rose: { bg: 'bg-rose-50', text: 'text-rose-700', badge: 'bg-rose-100 text-rose-700', border: 'border-rose-200' },
-  emerald: { bg: 'bg-emerald-50', text: 'text-emerald-700', badge: 'bg-emerald-100 text-emerald-700', border: 'border-emerald-200' },
-  sky: { bg: 'bg-sky-50', text: 'text-sky-700', badge: 'bg-sky-100 text-sky-700', border: 'border-sky-200' },
-  slate: { bg: 'bg-slate-50', text: 'text-slate-700', badge: 'bg-slate-100 text-slate-700', border: 'border-slate-200' },
+  blue: {
+    bg: 'bg-blue-50',
+    text: 'text-blue-700',
+    badge: 'bg-blue-100 text-blue-700',
+    border: 'border-blue-200',
+  },
+  indigo: {
+    bg: 'bg-indigo-50',
+    text: 'text-indigo-700',
+    badge: 'bg-indigo-100 text-indigo-700',
+    border: 'border-indigo-200',
+  },
+  violet: {
+    bg: 'bg-violet-50',
+    text: 'text-violet-700',
+    badge: 'bg-violet-100 text-violet-700',
+    border: 'border-violet-200',
+  },
+  green: {
+    bg: 'bg-green-50',
+    text: 'text-green-700',
+    badge: 'bg-green-100 text-green-700',
+    border: 'border-green-200',
+  },
+  teal: {
+    bg: 'bg-teal-50',
+    text: 'text-teal-700',
+    badge: 'bg-teal-100 text-teal-700',
+    border: 'border-teal-200',
+  },
+  orange: {
+    bg: 'bg-orange-50',
+    text: 'text-orange-700',
+    badge: 'bg-orange-100 text-orange-700',
+    border: 'border-orange-200',
+  },
+  pink: {
+    bg: 'bg-pink-50',
+    text: 'text-pink-700',
+    badge: 'bg-pink-100 text-pink-700',
+    border: 'border-pink-200',
+  },
+  cyan: {
+    bg: 'bg-cyan-50',
+    text: 'text-cyan-700',
+    badge: 'bg-cyan-100 text-cyan-700',
+    border: 'border-cyan-200',
+  },
+  amber: {
+    bg: 'bg-amber-50',
+    text: 'text-amber-700',
+    badge: 'bg-amber-100 text-amber-700',
+    border: 'border-amber-200',
+  },
+  rose: {
+    bg: 'bg-rose-50',
+    text: 'text-rose-700',
+    badge: 'bg-rose-100 text-rose-700',
+    border: 'border-rose-200',
+  },
+  emerald: {
+    bg: 'bg-emerald-50',
+    text: 'text-emerald-700',
+    badge: 'bg-emerald-100 text-emerald-700',
+    border: 'border-emerald-200',
+  },
+  sky: {
+    bg: 'bg-sky-50',
+    text: 'text-sky-700',
+    badge: 'bg-sky-100 text-sky-700',
+    border: 'border-sky-200',
+  },
+  slate: {
+    bg: 'bg-slate-50',
+    text: 'text-slate-700',
+    badge: 'bg-slate-100 text-slate-700',
+    border: 'border-slate-200',
+  },
 }
 
 function toggleCategory(index: number) {
@@ -229,7 +298,11 @@ const searchQuery = ref('')
 function matchesSearch(item: { cls: string; desc: string; css: string }) {
   if (!searchQuery.value) return true
   const q = searchQuery.value.toLowerCase()
-  return item.cls.toLowerCase().includes(q) || item.desc.includes(q) || item.css.toLowerCase().includes(q)
+  return (
+    item.cls.toLowerCase().includes(q) ||
+    item.desc.includes(q) ||
+    item.css.toLowerCase().includes(q)
+  )
 }
 </script>
 
@@ -239,8 +312,10 @@ function matchesSearch(item: { cls: string; desc: string; css: string }) {
     <div class="card">
       <h2 class="section-title">📋 UnoCSS 常用 Class 速查表</h2>
       <p class="text-gray-600 mb-4">
-        按类别整理了最常用的原子化 Class，点击分类卡片可展开/折叠查看全部。
-        支持搜索过滤，<strong class="text-brand">边查边背</strong>，高效记忆！
+        按类别整理了最常用的原子化 Class，点击分类卡片可展开/折叠查看全部。 支持搜索过滤，<strong
+          class="text-brand"
+          >边查边背</strong
+        >，高效记忆！
       </p>
 
       <!-- 搜索框 -->
@@ -277,7 +352,8 @@ function matchesSearch(item: { cls: string; desc: string; css: string }) {
         </div>
       </div>
       <p class="text-sm text-indigo-600 mt-3">
-        💡 规律：数字 × 0.25rem = 实际值。例如 <code class="bg-indigo-200/50 px-1 rounded">p-6</code> = 6 × 4px = <strong>24px</strong>
+        💡 规律：数字 × 0.25rem = 实际值。例如
+        <code class="bg-indigo-200/50 px-1 rounded">p-6</code> = 6 × 4px = <strong>24px</strong>
       </p>
     </div>
 
@@ -288,7 +364,7 @@ function matchesSearch(item: { cls: string; desc: string; css: string }) {
       class="card transition-all duration-200"
       :class="[
         colorMap[cat.color]?.border ? 'border ' + colorMap[cat.color].border : '',
-        activeCategory === idx ? 'ring-2 ring-brand/20' : ''
+        activeCategory === idx ? 'ring-2 ring-brand/20' : '',
       ]"
     >
       <!-- 分类头部 -->
@@ -300,21 +376,22 @@ function matchesSearch(item: { cls: string; desc: string; css: string }) {
           <h3 class="text-lg font-semibold" :class="colorMap[cat.color]?.text || 'text-gray-700'">
             {{ cat.title }}
           </h3>
-          <span class="text-xs px-2 py-0.5 rounded-full" :class="colorMap[cat.color]?.badge || 'bg-gray-100 text-gray-600'">
+          <span
+            class="text-xs px-2 py-0.5 rounded-full"
+            :class="colorMap[cat.color]?.badge || 'bg-gray-100 text-gray-600'"
+          >
             {{ cat.items.length }} 个
           </span>
         </div>
         <span
           class="text-gray-400 transition-transform duration-200 text-xl"
           :class="{ 'rotate-180': activeCategory === idx }"
-        >▼</span>
+          >▼</span
+        >
       </button>
 
       <!-- 展开内容 -->
-      <div
-        v-show="activeCategory === idx || searchQuery"
-        class="mt-4"
-      >
+      <div v-show="activeCategory === idx || searchQuery" class="mt-4">
         <div class="grid gap-2">
           <div
             v-for="item in cat.items.filter(matchesSearch)"
@@ -323,7 +400,10 @@ function matchesSearch(item: { cls: string; desc: string; css: string }) {
             :class="colorMap[cat.color]?.bg || 'bg-gray-50'"
           >
             <!-- class 名 -->
-            <code class="font-mono font-bold text-sm min-w-[180px] shrink-0" :class="colorMap[cat.color]?.text || 'text-gray-800'">
+            <code
+              class="font-mono font-bold text-sm min-w-[180px] shrink-0"
+              :class="colorMap[cat.color]?.text || 'text-gray-800'"
+            >
               {{ item.cls }}
             </code>
             <!-- 中文说明 -->
@@ -346,12 +426,38 @@ function matchesSearch(item: { cls: string; desc: string; css: string }) {
     <div class="card bg-amber-50 border-amber-200">
       <h3 class="text-lg font-semibold text-amber-800 mb-2">💡 记忆技巧</h3>
       <ul class="space-y-2 text-amber-700 text-sm">
-        <li>• <strong>前缀即属性</strong>：<code class="bg-amber-200 px-1 rounded">p</code>=padding, <code class="bg-amber-200 px-1 rounded">m</code>=margin, <code class="bg-amber-200 px-1 rounded">w</code>=width, <code class="bg-amber-200 px-1 rounded">h</code>=height, <code class="bg-amber-200 px-1 rounded">text</code>=font/text</li>
-        <li>• <strong>方向后缀</strong>：<code class="bg-amber-200 px-1 rounded">t/r/b/l</code>=上右下左, <code class="bg-amber-200 px-1 rounded">x/y</code>=水平/垂直</li>
-        <li>• <strong>颜色色阶</strong>：100(浅) → 500(标准) → 900(深)，如 <code class="bg-amber-200 px-1 rounded">blue-500</code> 是标准蓝</li>
-        <li>• <strong>状态前缀</strong>：<code class="bg-amber-200 px-1 rounded">hover:</code> 悬停, <code class="bg-amber-200 px-1 rounded">focus:</code> 聚焦, <code class="bg-amber-200 px-1 rounded">active:</code> 按下, <code class="bg-amber-200 px-1 rounded">disabled:</code> 禁用</li>
-        <li>• <strong>响应式前缀</strong>：<code class="bg-amber-200 px-1 rounded">sm: md: lg: xl:</code> 从小屏到大屏依次断点</li>
-        <li>• <strong>数字规律</strong>：间距/尺寸数字 × 4 = 像素值（如 <code class="bg-amber-200 px-1 rounded">p-4</code> = 16px, <code class="bg-amber-200 px-1 rounded">w-64</code> = 256px）</li>
+        <li>
+          • <strong>前缀即属性</strong>：<code class="bg-amber-200 px-1 rounded">p</code>=padding,
+          <code class="bg-amber-200 px-1 rounded">m</code>=margin,
+          <code class="bg-amber-200 px-1 rounded">w</code>=width,
+          <code class="bg-amber-200 px-1 rounded">h</code>=height,
+          <code class="bg-amber-200 px-1 rounded">text</code>=font/text
+        </li>
+        <li>
+          • <strong>方向后缀</strong>：<code class="bg-amber-200 px-1 rounded">t/r/b/l</code
+          >=上右下左, <code class="bg-amber-200 px-1 rounded">x/y</code>=水平/垂直
+        </li>
+        <li>
+          • <strong>颜色色阶</strong>：100(浅) → 500(标准) → 900(深)，如
+          <code class="bg-amber-200 px-1 rounded">blue-500</code> 是标准蓝
+        </li>
+        <li>
+          • <strong>状态前缀</strong>：<code class="bg-amber-200 px-1 rounded">hover:</code> 悬停,
+          <code class="bg-amber-200 px-1 rounded">focus:</code> 聚焦,
+          <code class="bg-amber-200 px-1 rounded">active:</code> 按下,
+          <code class="bg-amber-200 px-1 rounded">disabled:</code> 禁用
+        </li>
+        <li>
+          • <strong>响应式前缀</strong>：<code class="bg-amber-200 px-1 rounded"
+            >sm: md: lg: xl:</code
+          >
+          从小屏到大屏依次断点
+        </li>
+        <li>
+          • <strong>数字规律</strong>：间距/尺寸数字 × 4 = 像素值（如
+          <code class="bg-amber-200 px-1 rounded">p-4</code> = 16px,
+          <code class="bg-amber-200 px-1 rounded">w-64</code> = 256px）
+        </li>
       </ul>
     </div>
   </div>

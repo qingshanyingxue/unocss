@@ -165,7 +165,8 @@ const patterns = [
     <div class="card">
       <h2 class="section-title">📐 Flex 布局实战速查</h2>
       <p class="text-gray-600 mb-4">
-        Flex 是日常开发用得最多的布局方式，这里整理了 <strong class="text-brand">最常用的场景和写法</strong>，
+        Flex 是日常开发用得最多的布局方式，这里整理了
+        <strong class="text-brand">最常用的场景和写法</strong>，
         每个都有真实效果演示，边看边背，效率翻倍！
       </p>
 
@@ -197,16 +198,16 @@ const patterns = [
         <div class="bg-white/70 rounded-lg p-4">
           <div class="font-bold text-purple-700 mb-2">flex-row（默认横排）</div>
           <div class="text-gray-600">
-            → 主轴 = <strong>水平方向</strong>（左→右）<br/>
-            ↓ 交叉轴 = <strong>垂直方向</strong>（上→下）<br/>
+            → 主轴 = <strong>水平方向</strong>（左→右）<br />
+            ↓ 交叉轴 = <strong>垂直方向</strong>（上→下）<br />
             <span class="text-purple-600">justify = 控制左右 | items = 控制上下</span>
           </div>
         </div>
         <div class="bg-white/70 rounded-lg p-4">
           <div class="font-bold text-purple-700 mb-2">flex-col（垂直排列）</div>
           <div class="text-gray-600">
-            ↓ 主轴 = <strong>垂直方向</strong>（上→下）<br/>
-            → 交叉轴 = <strong>水平方向</strong>（左→右）<br/>
+            ↓ 主轴 = <strong>垂直方向</strong>（上→下）<br />
+            → 交叉轴 = <strong>水平方向</strong>（左→右）<br />
             <span class="text-purple-600">justify = 控制上下 | items = 控制左右</span>
           </div>
         </div>
@@ -232,39 +233,59 @@ const patterns = [
         <span
           class="text-gray-400 transition-transform duration-200"
           :class="{ 'rotate-180': activeScene === idx }"
-        >▼</span>
+          >▼</span
+        >
       </div>
 
       <!-- 代码 -->
       <div class="code-block text-xs mb-3">
-        class="<span class="text-yellow-300">{{ scene.code }}</span>"
+        class="<span class="text-yellow-300">{{ scene.code }}</span
+        >"
       </div>
 
       <!-- 实时演示 -->
-      <div
-        v-show="activeScene === idx"
-        class="border border-gray-200 rounded-lg p-4 bg-gray-50"
-      >
+      <div v-show="activeScene === idx" class="border border-gray-200 rounded-lg p-4 bg-gray-50">
         <div :class="scene.classes">
           <template v-if="scene.selfAlign">
-            <div class="w-16 h-12 bg-blue-400 rounded flex items-center justify-center text-white text-xs font-bold">A</div>
-            <div class="w-16 h-12 bg-green-400 rounded flex items-center justify-center text-white text-xs font-bold self-center">B (center)</div>
-            <div class="w-16 h-12 bg-purple-400 rounded flex items-center justify-center text-white text-xs font-bold self-end">C (end)</div>
+            <div
+              class="w-16 h-12 bg-blue-400 rounded flex items-center justify-center text-white text-xs font-bold"
+            >
+              A
+            </div>
+            <div
+              class="w-16 h-12 bg-green-400 rounded flex items-center justify-center text-white text-xs font-bold self-center"
+            >
+              B (center)
+            </div>
+            <div
+              class="w-16 h-12 bg-purple-400 rounded flex items-center justify-center text-white text-xs font-bold self-end"
+            >
+              C (end)
+            </div>
           </template>
           <template v-else-if="scene.noShrink">
-            <div class="w-32 h-10 bg-blue-400 rounded flex items-center justify-center text-white text-xs font-bold flex-shrink-0">固定不缩</div>
-            <div class="h-10 bg-green-400 rounded flex items-center justify-center text-white text-xs font-bold flex-1 min-w-0">flex-1 自适应</div>
-            <div class="w-32 h-10 bg-purple-400 rounded flex items-center justify-center text-white text-xs font-bold flex-shrink-0">固定不缩</div>
+            <div
+              class="w-32 h-10 bg-blue-400 rounded flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
+            >
+              固定不缩
+            </div>
+            <div
+              class="h-10 bg-green-400 rounded flex items-center justify-center text-white text-xs font-bold flex-1 min-w-0"
+            >
+              flex-1 自适应
+            </div>
+            <div
+              class="w-32 h-10 bg-purple-400 rounded flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
+            >
+              固定不缩
+            </div>
           </template>
           <template v-else-if="scene.flexItem !== undefined">
             <div
               v-for="i in scene.items"
               :key="i"
               class="h-10 rounded flex items-center justify-center text-white text-xs font-bold"
-              :class="[
-                demoBox(i - 1, 'blue'),
-                i - 1 === scene.flexItem ? 'flex-1' : 'w-20'
-              ]"
+              :class="[demoBox(i - 1, 'blue'), i - 1 === scene.flexItem ? 'flex-1' : 'w-20']"
             >
               {{ i - 1 === scene.flexItem ? 'flex-1 撑满' : i }}
             </div>
@@ -314,15 +335,18 @@ const patterns = [
         </li>
         <li>
           <strong>文字溢出了？</strong>
-          给 flex 子元素加 <code class="bg-red-200 px-1 rounded">min-w-0</code> 或 <code class="bg-red-200 px-1 rounded">overflow-hidden truncate</code> 才能正常截断
+          给 flex 子元素加 <code class="bg-red-200 px-1 rounded">min-w-0</code> 或
+          <code class="bg-red-200 px-1 rounded">overflow-hidden truncate</code> 才能正常截断
         </li>
         <li>
           <strong>items-center 没效果？</strong>
-          记住：items 控制的是<strong>交叉轴</strong>（与主轴垂直的方向），row 下是上下，col 下是左右
+          记住：items 控制的是<strong>交叉轴</strong>（与主轴垂直的方向），row 下是上下，col
+          下是左右
         </li>
         <li>
           <strong>gap 和 space-x 冲突？</strong>
-          优先用 <code class="bg-red-200 px-1 rounded">gap-4</code>，比 space-x-4 更简洁且不会产生首元素 margin
+          优先用 <code class="bg-red-200 px-1 rounded">gap-4</code>，比 space-x-4
+          更简洁且不会产生首元素 margin
         </li>
         <li>
           <strong>flex-shrink-0 忘写？</strong>

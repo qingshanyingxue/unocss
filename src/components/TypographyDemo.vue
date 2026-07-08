@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="space-y-6">
@@ -7,7 +6,8 @@
       <h2 class="section-title">📖 排版预设 (Typography)</h2>
       <p class="text-gray-600 mb-4">
         使用 <code class="bg-gray-100 px-2 py-0.5 rounded text-sm">presetTypography()</code>，
-        给文章内容自动添加优雅的排版样式，只需一个 <code class="bg-gray-100 px-2 py-0.5 rounded text-sm">prose</code> 类。
+        给文章内容自动添加优雅的排版样式，只需一个
+        <code class="bg-gray-100 px-2 py-0.5 rounded text-sm">prose</code> 类。
       </p>
 
       <div class="code-block mb-4">
@@ -24,8 +24,8 @@
       <div class="prose prose-gray max-w-none">
         <h1>Typography 排版演示</h1>
         <p>
-          这是一段使用 <code>prose</code> 类的文章内容。UnoCSS 的 Typography 预设会自动为
-          HTML 元素添加合适的<strong>字体大小</strong>、<strong>行高</strong>、<strong>间距</strong>和<strong>颜色</strong>。
+          这是一段使用 <code>prose</code> 类的文章内容。UnoCSS 的 Typography 预设会自动为 HTML
+          元素添加合适的<strong>字体大小</strong>、<strong>行高</strong>、<strong>间距</strong>和<strong>颜色</strong>。
         </p>
 
         <h2>二级标题</h2>
@@ -41,13 +41,9 @@
           <li>嵌套列表也能正确处理</li>
         </ul>
 
-        <blockquote>
-          这是一段引用文字，prose 会自动添加左侧边框和斜体样式。
-        </blockquote>
+        <blockquote>这是一段引用文字，prose 会自动添加左侧边框和斜体样式。</blockquote>
 
-        <p>
-          代码也能正确显示：<code>const x = 42;</code>，而代码块也有专门的样式：
-        </p>
+        <p>代码也能正确显示：<code>const x = 42;</code>，而代码块也有专门的样式：</p>
 
         <pre><code>function fibonacci(n: number): number {
   if (n &lt;= 1) return n

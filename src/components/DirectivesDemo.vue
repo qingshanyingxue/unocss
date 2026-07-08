@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="space-y-6">
@@ -7,7 +6,9 @@
       <h2 class="section-title">🎨 @apply 指令 (Directives)</h2>
       <p class="text-gray-600 mb-4">
         使用 <code class="bg-gray-100 px-2 py-0.5 rounded text-sm">transformerDirectives()</code>，
-        可以在 <code class="bg-gray-100 px-2 py-0.5 rounded text-sm">&lt;style&gt;</code> 中使用 <code class="bg-gray-100 px-2 py-0.5 rounded text-sm">@apply</code> 把 UnoCSS 工具类写成自定义 CSS。
+        可以在 <code class="bg-gray-100 px-2 py-0.5 rounded text-sm">&lt;style&gt;</code> 中使用
+        <code class="bg-gray-100 px-2 py-0.5 rounded text-sm">@apply</code> 把 UnoCSS
+        工具类写成自定义 CSS。
       </p>
 
       <div class="code-block mb-4">
@@ -21,7 +22,9 @@
 
     <div class="card">
       <h3 class="text-lg font-semibold text-gray-700 mb-4">📌 @apply 演示按钮</h3>
-      <p class="text-sm text-gray-500 mb-4">以下按钮样式通过 <code class="bg-gray-100 px-1 rounded">@apply</code> 在 style 标签中定义</p>
+      <p class="text-sm text-gray-500 mb-4">
+        以下按钮样式通过 <code class="bg-gray-100 px-1 rounded">@apply</code> 在 style 标签中定义
+      </p>
       <div class="flex flex-wrap gap-3">
         <button class="btn-apply-primary">主按钮</button>
         <button class="btn-apply-success">成功按钮</button>
@@ -35,9 +38,7 @@
       <p class="text-sm text-gray-500 mb-4">
         使用 <code class="bg-gray-100 px-1 rounded">@screen</code> 定义不同断点下的样式
       </p>
-      <div class="screen-demo">
-        调整窗口大小看变化：小屏 = 红色，中屏 = 蓝色，大屏 = 绿色
-      </div>
+      <div class="screen-demo">调整窗口大小看变化：小屏 = 红色，中屏 = 蓝色，大屏 = 绿色</div>
       <div class="code-block mt-3">
         <div>@screen md { .screen-demo { @apply bg-blue-500 text-white; } }</div>
         <div>@screen lg { .screen-demo { @apply bg-green-500; } }</div>
@@ -48,9 +49,7 @@
       <h3 class="text-lg font-semibold text-gray-700 mb-4">🧩 @apply 配合自定义属性</h3>
       <div class="custom-card">
         <h4 class="custom-card-title">混合使用 @apply + CSS 变量</h4>
-        <p class="text-gray-600">
-          在 @apply 的基础上，仍然可以使用原生 CSS 属性和 CSS 变量。
-        </p>
+        <p class="text-gray-600">在 @apply 的基础上，仍然可以使用原生 CSS 属性和 CSS 变量。</p>
       </div>
       <div class="code-block mt-3">
         <div>.custom-card {</div>

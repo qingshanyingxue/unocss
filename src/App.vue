@@ -55,7 +55,7 @@ const activeTab = ref(0)
             'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer',
             activeTab === index
               ? 'bg-brand text-white shadow-md shadow-brand/30'
-              : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+              : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200',
           ]"
         >
           {{ tab.name }}
@@ -69,7 +69,9 @@ const activeTab = ref(0)
     </main>
 
     <!-- 底部 -->
-    <footer class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur border-t border-gray-200 py-2 text-center text-xs text-gray-400">
+    <footer
+      class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur border-t border-gray-200 py-2 text-center text-xs text-gray-400"
+    >
       提示：打开浏览器 DevTools 查看生成的 CSS，学习 UnoCSS 的工作原理
     </footer>
   </div>

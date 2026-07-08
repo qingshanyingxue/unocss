@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="space-y-6">
@@ -12,9 +11,13 @@
 
       <div class="code-block mb-4">
         <div class="text-gray-500 mb-1">&lt;!-- 传统写法 --&gt;</div>
-        <div>&lt;div class="text-xl font-bold text-blue-600 p-4 bg-blue-50 rounded"&gt;...&lt;/div&gt;</div>
+        <div>
+          &lt;div class="text-xl font-bold text-blue-600 p-4 bg-blue-50 rounded"&gt;...&lt;/div&gt;
+        </div>
         <div class="mt-3 text-gray-500">&lt;!-- 属性化写法 --&gt;</div>
-        <div>&lt;div text="xl blue-600" font="bold" p="4" bg="blue-50" rounded&gt;...&lt;/div&gt;</div>
+        <div>
+          &lt;div text="xl blue-600" font="bold" p="4" bg="blue-50" rounded&gt;...&lt;/div&gt;
+        </div>
       </div>
     </div>
 
@@ -36,7 +39,9 @@
       </div>
 
       <p class="text-sm text-gray-500 mb-2">📝 传统 class 写法：</p>
-      <div class="text-xl text-gray-800 font-bold p-4 bg-gray-50 rounded-lg border border-gray-200 mb-4">
+      <div
+        class="text-xl text-gray-800 font-bold p-4 bg-gray-50 rounded-lg border border-gray-200 mb-4"
+      >
         我是传统写法，class="text-xl text-gray-800 font-bold ..."
       </div>
     </div>
@@ -89,10 +94,21 @@
     <div class="card bg-amber-50 border-amber-200">
       <h3 class="text-lg font-semibold text-amber-800 mb-2">💡 属性化技巧</h3>
       <ul class="space-y-1 text-amber-700 text-sm">
-        <li>• <code class="bg-amber-200 px-1 rounded">bg="blue-500 hover:blue-600"</code> — 用空格分隔多个值</li>
-        <li>• <code class="bg-amber-200 px-1 rounded">border="~ gray-200"</code> — <code>~</code> 代表属性本身(border)</li>
-        <li>• <code class="bg-amber-200 px-1 rounded">text="xl center"</code> — 同时设置大小和对齐</li>
-        <li>• <code class="bg-amber-200 px-1 rounded">m="t-4 b-2"</code> — 间距方向缩写：t=top, b=bottom</li>
+        <li>
+          • <code class="bg-amber-200 px-1 rounded">bg="blue-500 hover:blue-600"</code> —
+          用空格分隔多个值
+        </li>
+        <li>
+          • <code class="bg-amber-200 px-1 rounded">border="~ gray-200"</code> —
+          <code>~</code> 代表属性本身(border)
+        </li>
+        <li>
+          • <code class="bg-amber-200 px-1 rounded">text="xl center"</code> — 同时设置大小和对齐
+        </li>
+        <li>
+          • <code class="bg-amber-200 px-1 rounded">m="t-4 b-2"</code> — 间距方向缩写：t=top,
+          b=bottom
+        </li>
       </ul>
     </div>
   </div>

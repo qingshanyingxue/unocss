@@ -6,13 +6,20 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier --write \"src/**/*.{ts,vue,json}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,vue,json}\"",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,vue,json}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.3",
     "@unocss/preset-attributify": "^66.3.3",
     "@unocss/preset-icons": "^66.3.3",
     "@unocss/preset-typography": "^66.3.3",
@@ -20,8 +27,12 @@
     "@unocss/transformer-attributify-jsx": "^66.3.3",
     "@unocss/transformer-directives": "^66.3.3",
     "@unocss/transformer-variant-group": "^66.3.3",
-    "unocss": "^66.3.3",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
+    "prettier": "^3.6.2",
     "typescript": "~5.7.3",
+    "unocss": "^66.3.3",
     "vite": "^6.3.5",
     "vue-tsc": "^2.2.8"
   }
